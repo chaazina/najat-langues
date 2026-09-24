@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Najat Messaoudi — Cours de néerlandais & anglais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,560;9..144,650&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1B2A3F;
+  --paper:#F6F1E6;
+  --paper-2:#EFE7D6;
+  --mustard:#C68A3E;
+  --clay:#AF5138;
+  --sage:#5F7A5B;
+  --line: rgba(27,42,63,0.14);
+  box-sizing:border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+*{box-sizing:border-box;}
+html{scroll-padding-top: env(safe-area-inset-top, 0px); scroll-behavior:smooth;}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:'Karla', sans-serif; font-size:17px; line-height:1.6;
+}
+h1,h2,h3{font-family:'Fraunces', serif; font-weight:650; margin:0; color:var(--ink);}
+p{margin:0;}
+img{max-width:100%;}
+.wrap{max-width:1040px; margin:0 auto; padding:0 24px;}
+a{color:inherit;}
+
+/* Header */
+header{
+  position:sticky; top:0; top: env(safe-area-inset-top, 0px);
+  background:var(--paper); border-bottom:1px solid var(--line); z-index:10;
+}
+.nav{display:flex; align-items:center; justify-content:space-between; padding:18px 24px; max-width:1040px; margin:0 auto;}
+.brand{font-family:'Fraunces', serif; font-weight:650; font-size:1.15rem; letter-spacing:.01em;}
+.brand span{color:var(--clay);}
+nav ul{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+nav a{text-decoration:none; font-size:.95rem; font-weight:500;}
+nav a:hover{color:var(--clay);}
+.navcta{background:var(--sage); color:var(--paper); padding:9px 18px; border-radius:3px; text-decoration:none; font-weight:700; font-size:.9rem;}
+.menu-btn{display:none; background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--ink);}
+@media(max-width:720px){
+  nav ul{display:none;}
+  .navcta{display:none;}
+  .menu-btn{display:block;}
+}
+
+/* Hero */
+.hero{padding:76px 0 88px; border-bottom:1px solid var(--line);}
+.hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:end;}
+@media(max-width:800px){.hero-grid{grid-template-columns:1fr; gap:36px;}}
+.greet{display:flex; gap:14px; margin-bottom:22px; font-size:1.05rem;}
+.greet b{font-family:'Fraunces',serif; font-weight:560;}
+.greet .nl{color:var(--mustard);} .greet .en{color:var(--clay);}
+h1{font-size:clamp(2.3rem, 5vw, 3.6rem); line-height:1.08; max-width:11ch;}
+.hero p.lead{margin-top:22px; max-width:46ch; font-size:1.08rem; color:#3c4b5c;}
+.hero-actions{margin-top:32px; display:flex; gap:14px; flex-wrap:wrap;}
+.btn{display:inline-block; padding:13px 24px; border-radius:3px; text-decoration:none; font-weight:700; font-size:.95rem;}
+.btn-primary{background:var(--ink); color:var(--paper);}
+.btn-primary:hover{background:var(--clay);}
+.btn-outline{border:1.5px solid var(--ink); color:var(--ink);}
+.hero-card{
+  background:var(--ink); color:var(--paper); border-radius:4px; padding:32px;
+  display:flex; flex-direction:column; gap:16px;
+}
+.hero-card .rate{font-family:'Fraunces',serif; font-size:2.6rem; font-weight:650;}
+.hero-card .rate small{font-family:'Karla',sans-serif; font-size:1rem; font-weight:500; opacity:.8;}
+.hero-card ul{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:8px; font-size:.95rem;}
+.hero-card li:before{content:"— "; opacity:.6;}
+
+/* Section shell */
+section{padding:64px 0; border-bottom:1px solid var(--line);}
+.eyebrow{font-size:.85rem; color:var(--sage); font-weight:700; margin-bottom:10px;}
+.section-head{max-width:52ch; margin-bottom:40px;}
+.section-head h2{font-size:clamp(1.7rem, 3vw, 2.2rem);}
+.section-head p{margin-top:12px; color:#3c4b5c;}
+
+/* About */
+.about-grid{display:grid; grid-template-columns:auto 1fr; gap:40px; align-items:start;}
+@media(max-width:700px){.about-grid{grid-template-columns:1fr;}}
+.portrait{
+  width:180px; height:180px; border-radius:4px; background:var(--mustard);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Fraunces',serif; font-size:3.4rem; color:var(--paper); font-weight:650;
+}
+.about-grid p{margin-bottom:14px; color:#3c4b5c; max-width:58ch;}
+.about-grid p:last-child{margin-bottom:0;}
+
+/* Levels / services */
+.cards{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+@media(max-width:760px){.cards{grid-template-columns:1fr;}}
+.card{background:var(--paper); padding:30px 26px;}
+.card .tag{font-size:.8rem; font-weight:700; letter-spacing:.02em; color:var(--clay); margin-bottom:10px;}
+.card h3{font-size:1.25rem; margin-bottom:10px;}
+.card p{color:#3c4b5c; font-size:.96rem;}
+
+/* Steps */
+.steps{display:grid; grid-template-columns:repeat(3,1fr); gap:32px;}
+@media(max-width:760px){.steps{grid-template-columns:1fr;}}
+.step{border-top:2px solid var(--ink); padding-top:16px;}
+.step h3{font-size:1.1rem; margin-bottom:8px;}
+.step p{color:#3c4b5c; font-size:.95rem;}
+
+/* Contact */
+.contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px;}
+@media(max-width:720px){.contact-grid{grid-template-columns:1fr;}}
+.contact-list{display:flex; flex-direction:column; gap:18px; margin-top:8px;}
+.contact-item{display:flex; flex-direction:column; gap:2px;}
+.contact-item span{font-size:.82rem; color:var(--sage); font-weight:700;}
+.contact-item a, .contact-item div{font-size:1.1rem; font-family:'Fraunces',serif;}
+.contact-card{background:var(--paper-2); border-radius:4px; padding:28px;}
+.contact-card p{color:#3c4b5c; margin-bottom:18px;}
+
+footer{padding:28px 24px; text-align:center; font-size:.85rem; color:#5c6b7d;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">Najat <span>Messaoudi</span></div>
+    <nav><ul>
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#cours">Cours</a></li>
+      <li><a href="#deroulement">Déroulement</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+    <a class="navcta" href="#contact">Réserver un cours</a>
+    <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('mnav').classList.toggle('open')">☰</button>
+  </div>
+  <div id="mnav" style="display:none; flex-direction:column; padding:0 24px 18px; gap:12px;">
+    <a href="#apropos">À propos</a><a href="#cours">Cours</a><a href="#deroulement">Déroulement</a><a href="#contact">Contact</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="greet"><b class="nl">Welkom.</b><b class="en">Welcome.</b></div>
+      <h1>Le néerlandais et l'anglais, expliqués simplement.</h1>
+      <p class="lead">Cours particuliers de néerlandais et d'anglais à Bruxelles, du primaire au secondaire — en présentiel ou en ligne, adaptés au rythme de chaque élève.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">Prendre contact</a>
+        <a class="btn btn-outline" href="#cours">Voir les cours</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="rate">25€ <small>/ heure</small></div>
+      <ul>
+        <li>Présentiel ou en ligne</li>
+        <li>Tous niveaux, primaire à secondaire</li>
+        <li>Disponible sur toute la région de Bruxelles</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="apropos">
+  <div class="wrap about-grid">
+    <div class="portrait">NM</div>
+    <div>
+      <div class="eyebrow">À propos</div>
+      <h2 style="margin-bottom:18px;">20 ans à accompagner des élèves, du primaire au secondaire.</h2>
+      <p>Diplômée de la Haute École Francisco Ferrer, Najat enseigne le néerlandais et l'anglais depuis 20 ans, d'abord auprès d'élèves du primaire, puis du secondaire.</p>
+      <p>Elle adapte chaque cours à l'élève : renforcement scolaire, préparation aux examens, ou simplement prendre confiance à l'oral — en présentiel comme en ligne.</p>
+    </div>
+  </div>
+</section>
+
+<section id="cours">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Cours proposés</div>
+      <h2>Deux langues, tous les niveaux</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="tag">NÉERLANDAIS</div>
+        <h3>Cours de néerlandais</h3>
+        <p>Grammaire, vocabulaire, oral et écrit — pour élèves du primaire au secondaire.</p>
+      </div>
+      <div class="card">
+        <div class="tag">ANGLAIS</div>
+        <h3>Cours d'anglais</h3>
+        <p>Du niveau débutant à la préparation d'examens, à l'oral comme à l'écrit.</p>
+      </div>
+      <div class="card">
+        <div class="tag">FORMAT</div>
+        <h3>Présentiel ou en ligne</h3>
+        <p>Cours au domicile de l'élève, sur toute la région de Bruxelles, ou par visio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="deroulement">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Déroulement</div>
+      <h2>Comment ça se passe</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <h3>1. Prise de contact</h3>
+        <p>Un message ou un appel pour définir le niveau, les objectifs et la disponibilité.</p>
+      </div>
+      <div class="step">
+        <h3>2. Premier cours</h3>
+        <p>Un premier cours pour évaluer le niveau et adapter le programme.</p>
+      </div>
+      <div class="step">
+        <h3>3. Suivi régulier</h3>
+        <p>Cours réguliers au rythme souhaité, en présentiel ou en ligne.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="border-bottom:none;">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="eyebrow">Contact</div>
+      <h2 style="margin-bottom:18px;">Prendre contact</h2>
+      <div class="contact-list">
+        <div class="contact-item"><span>TÉLÉPHONE</span>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <a href="tel:0477310017">0477 31 00 17</a>
+            <a href="https://wa.me/32477310017" aria-label="WhatsApp" style="display:inline-flex; align-items:center;">
+              <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="16" cy="16" r="16" fill="#5F7A5B"/>
+                <path d="M22.5 9.5C20.9 7.9 18.7 7 16.4 7C11.6 7 7.7 10.9 7.7 15.7C7.7 17.2 8.1 18.7 8.9 20L7.6 24.7L12.4 23.4C13.7 24.1 15 24.5 16.4 24.5C21.2 24.5 25.1 20.6 25.1 15.8C25.1 13.5 24.1 11.1 22.5 9.5ZM16.4 22.9C15.1 22.9 13.8 22.5 12.7 21.9L12.4 21.7L9.7 22.4L10.4 19.8L10.2 19.5C9.5 18.3 9.2 17 9.2 15.7C9.2 11.7 12.4 8.5 16.4 8.5C18.3 8.5 20.1 9.3 21.4 10.6C22.7 11.9 23.5 13.7 23.5 15.6C23.5 19.7 20.4 22.9 16.4 22.9ZM20.3 17.5C20.1 17.4 18.9 16.8 18.7 16.7C18.5 16.6 18.3 16.6 18.1 16.8C18 17 17.6 17.5 17.5 17.6C17.4 17.7 17.2 17.8 17 17.7C16.5 17.5 15.9 17.2 15.4 16.7C14.9 16.3 14.6 15.8 14.4 15.4C14.3 15.2 14.4 15.1 14.5 15C14.6 14.9 14.7 14.8 14.8 14.6C14.9 14.5 14.9 14.4 15 14.3C15 14.2 15 14 14.9 13.9C14.8 13.8 14.4 12.8 14.2 12.4C14.1 12 13.9 12.1 13.8 12.1C13.6 12.1 13.5 12.1 13.3 12.1C13.1 12.1 12.9 12.2 12.7 12.4C12.5 12.6 12 13 12 14C12 15 12.7 16 12.8 16.1C12.9 16.2 14.3 18.4 16.5 19.3C17.9 19.9 18.4 20 19.1 19.9C19.5 19.8 20.2 19.4 20.4 19C20.6 18.5 20.6 18.1 20.5 18C20.5 17.9 20.4 17.8 20.3 17.5Z" fill="white"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="contact-item"><span>EMAIL</span><a href="mailto:Messa1@msn.com">Messa1@msn.com</a></div>
+        <div class="contact-item"><span>ZONE</span><div>Toute la région de Bruxelles</div></div>
+      </div>
+    </div>
+    <div class="contact-card">
+      <h3 style="margin-bottom:10px;">Un premier cours ?</h3>
+      <p>Le plus simple est d'envoyer un mail ou un message avec le niveau de l'élève et les disponibilités.</p>
+      <a class="btn btn-primary" href="mailto:Messa1@msn.com">Envoyer un email</a>
+    </div>
+  </div>
+</section>
+
+<footer>Najat Messaoudi — Cours de néerlandais & anglais, Bruxelles</footer>
+
+</body>
+</html>
