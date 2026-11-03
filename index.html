@@ -1,0 +1,813 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="LingoBoost Academy : cours d'anglais et de néerlandais pour le primaire et le secondaire, cours particuliers, cours groupés et stages de vacances à Bruxelles.">
+<title>LingoBoost Academy | Cours et stages de langues</title>
+
+<style>
+:root {
+  --orange: #F08C21;
+  --yellow: #F2D88F;
+  --pink: #E36888;
+  --blue: #6698CC;
+  --green: #B4B534;
+  --dark: #283344;
+  --cream: #FFFDF8;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  line-height: 1.6;
+}
+a { text-decoration: none; color: inherit; }
+.container { width: min(1120px, 90%); margin: auto; }
+header {
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 3px 15px #0000000c;
+}
+.navbar {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 0;
+}
+.logo { font-size: 1.45rem; font-weight: 900; color: var(--orange); }
+.logo span { color: var(--blue); }
+nav { display: flex; flex-wrap: wrap; gap: 18px; }
+nav a { font-size: .9rem; font-weight: bold; }
+nav a:hover { color: var(--pink); }
+.button {
+  display: inline-block;
+  border: 0;
+  border-radius: 30px;
+  background: var(--orange);
+  color: white;
+  font-weight: bold;
+  padding: 12px 22px;
+  cursor: pointer;
+  transition: .2s;
+}
+.button:hover { transform: translateY(-2px); opacity: .9; }
+.button-blue { background: var(--blue); }
+.hero {
+  padding: 78px 0;
+  background:
+    radial-gradient(circle at 90% 10%, #f2d88f 0, transparent 25%),
+    radial-gradient(circle at 5% 95%, #f8dce4 0, transparent 25%),
+    #fff9ee;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 45px;
+  align-items: center;
+}
+.eyebrow {
+  display: inline-block;
+  background: white;
+  border: 1px solid var(--yellow);
+  padding: 7px 15px;
+  border-radius: 25px;
+  margin-bottom: 18px;
+  font-weight: bold;
+}
+h1 {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+h1 span { color: var(--orange); }
+.hero p { color: #596577; margin-bottom: 25px; font-size: 1.05rem; }
+.hero-art {
+  background: var(--yellow);
+  padding: 35px;
+  border-radius: 35px 65px 35px 65px;
+  text-align: center;
+}
+.hero-art-inner {
+  background: white;
+  border-radius: 25px;
+  padding: 35px 20px;
+  transform: rotate(-2deg);
+}
+.hero-art .emoji { font-size: 4rem; }
+.hero-art h2 { margin: 12px 0; }
+.experience {
+  background: var(--blue);
+  color: white;
+  padding: 18px;
+  text-align: center;
+}
+.experience strong { color: var(--yellow); }
+section { padding: 72px 0; }
+.section-heading {
+  max-width: 740px;
+  text-align: center;
+  margin: 0 auto 38px;
+}
+.kicker {
+  color: var(--pink);
+  font-size: .82rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.section-heading h2 {
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  line-height: 1.2;
+  margin: 10px 0 14px;
+}
+.section-heading p { color: #657080; }
+.courses { background: white; }
+.grid-four {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+.card {
+  background: white;
+  padding: 23px 19px;
+  border: 1px solid #e9e9ec;
+  border-radius: 22px;
+  box-shadow: 0 8px 24px #202d400c;
+  display: flex;
+  flex-direction: column;
+}
+.card h3 { line-height: 1.3; margin: 12px 0; }
+.card p { color: #657080; font-size: .93rem; }
+.card ul { list-style: none; margin: 14px 0; }
+.card li { font-size: .88rem; margin: 6px 0; }
+.card li::before { content: "✓ "; color: var(--green); font-weight: 900; }
+.icon {
+  width: 60px; height: 60px;
+  display: grid; place-items: center;
+  border-radius: 18px; font-size: 2rem;
+}
+.bg-orange { background: #fff0dc; }
+.bg-pink { background: #ffe8ef; }
+.bg-blue { background: #e5f0fc; }
+.bg-green { background: #f0f1d9; }
+.prices {
+  border-top: 1px solid #eee;
+  margin-top: auto;
+  padding-top: 13px;
+}
+.price-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin: 8px 0;
+  font-size: .87rem;
+}
+.price-line strong { white-space: nowrap; font-size: 1.05rem; }
+.note { color: #737b88; font-size: .78rem; margin-top: 7px; }
+.card-link {
+  text-align: center;
+  margin-top: 16px;
+  padding: 10px;
+  color: white;
+  background: var(--blue);
+  border-radius: 12px;
+  font-weight: bold;
+}
+.card:nth-child(1) .card-link { background: var(--orange); }
+.card:nth-child(2) .card-link { background: var(--pink); }
+.card:nth-child(4) .card-link { background: var(--green); color: #283000; }
+
+.pricing { background: #fff8ed; }
+.grid-three {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+.price-card {
+  background: white;
+  text-align: center;
+  padding: 28px 22px;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px #202d400c;
+  border: 2px solid var(--yellow);
+}
+.price-card:nth-child(2) { border-color: var(--pink); }
+.price-card:nth-child(3) { border-color: var(--blue); }
+.price-card .emoji { font-size: 2.7rem; }
+.price-card h3 { margin: 8px 0; }
+.price-number { font-size: 2.5rem; font-weight: 900; margin: 12px 0; }
+.price-card p { color: #657080; font-size: .92rem; margin-bottom: 15px; }
+
+.stages { background: white; }
+.stage-intro {
+  background: #fff8ed;
+  border-radius: 22px;
+  padding: 25px;
+  text-align: center;
+  margin-bottom: 35px;
+}
+.stage-card {
+  position: relative;
+  overflow: hidden;
+  padding: 0 0 25px;
+  border-radius: 25px;
+  background: white;
+  box-shadow: 0 10px 28px #202d4012;
+  border: 1px solid #eee;
+}
+.stage-banner {
+  min-height: 150px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 22px;
+  font-size: 3.4rem;
+}
+.stage-banner h3 { font-size: 1.5rem; }
+.autumn .stage-banner { background: #ffe2bd; }
+.carnival .stage-banner { background: #f8dced; }
+.easter .stage-banner { background: #e8f3d6; }
+.stage-content { padding: 22px; }
+.stage-content p { color: #657080; margin: 10px 0; }
+.stage-content ul { list-style: none; margin: 15px 0; }
+.stage-content li { margin: 7px 0; font-size: .92rem; }
+.stage-content li::before { content: "✦ "; color: var(--orange); }
+.stage-price {
+  background: #fff8ed;
+  border-radius: 16px;
+  padding: 15px;
+  margin: 18px 0;
+}
+.stage-price p { margin: 6px 0; }
+.stage-price strong { color: var(--dark); }
+.stage-footnote {
+  font-size: .82rem;
+  color: #657080;
+  text-align: center;
+  margin-top: 25px;
+}
+.advantages { background: #fff8ed; }
+.advantage-card {
+  background: white;
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 8px 22px #202d400c;
+}
+.advantage-card .emoji { font-size: 2rem; }
+.advantage-card h3 { margin: 10px 0; }
+.advantage-card p { color: #657080; font-size: .94rem; }
+.teacher { background: #f1f6fc; }
+.teacher-grid {
+  display: grid;
+  grid-template-columns: .7fr 1.3fr;
+  gap: 40px;
+  align-items: center;
+}
+.teacher-art {
+  min-height: 260px;
+  background: var(--pink);
+  border-radius: 30px;
+  display: grid;
+  place-items: center;
+  font-size: 6rem;
+}
+.teacher-text h2 { font-size: 2.3rem; line-height: 1.2; margin: 12px 0; }
+.teacher-text p { color: #596577; margin-bottom: 15px; }
+.tag {
+  display: inline-block;
+  padding: 7px 12px;
+  background: white;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: .83rem;
+  margin: 4px;
+}
+.contact { background: white; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+}
+.contact-info h2 { font-size: 2.3rem; line-height: 1.2; margin: 12px 0; }
+.contact-info p { color: #657080; margin-bottom: 16px; }
+.contact-detail { padding: 13px 0; border-bottom: 1px solid #eee; }
+.contact-form { background: #fff8ed; padding: 28px; border-radius: 24px; }
+.contact-form h3 { margin-bottom: 18px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-group { margin-bottom: 14px; }
+.form-group label { display: block; font-weight: bold; font-size: .9rem; margin-bottom: 6px; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: white;
+}
+.form-group textarea { min-height: 105px; resize: vertical; }
+.submit-button { width: 100%; font-size: 1rem; }
+.form-note { font-size: .8rem; color: #657080; margin-top: 12px; }
+
+footer {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 32px 0;
+}
+.footer-logo { color: var(--yellow); font-size: 1.4rem; font-weight: 900; margin-bottom: 8px; }
+footer p { color: #e0e4ea; font-size: .9rem; }
+.footer-contact {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 15px 0;
+}
+.footer-contact a { color: var(--yellow); font-weight: bold; }
+.floating-bubble {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 90;
+  background: var(--green);
+  color: #283000;
+  padding: 12px 17px;
+  border-radius: 30px;
+  font-size: .88rem;
+  font-weight: 900;
+  box-shadow: 0 5px 20px #0002;
+}
+
+@media (max-width: 1000px) {
+  .grid-four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  nav { gap: 12px; }
+}
+@media (max-width: 720px) {
+  .navbar { flex-direction: column; }
+  nav { justify-content: center; }
+  .hero-grid, .teacher-grid, .contact-grid { grid-template-columns: 1fr; }
+  .grid-four, .grid-three { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  section { padding: 52px 0; }
+  .hero { padding: 52px 0; }
+  .contact-form { padding: 20px; }
+  .floating-bubble { right: 10px; bottom: 10px; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="container navbar">
+    <a href="#accueil" class="logo">LingoBoost <span>Academy</span></a>
+    <nav aria-label="Navigation principale">
+      <a href="#accueil">Accueil</a>
+      <a href="#cours">Cours</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#stages">Stages</a>
+      <a href="#professeure">Professeure</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="button">Nous contacter</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="accueil">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">✨ Apprendre avec confiance</span>
+      <h1>Les langues, c'est plus facile avec <span>LingoBoost !</span></h1>
+      <p>
+        Des cours d'anglais et de néerlandais pour les élèves du primaire
+        et du secondaire. Des explications simples, un accompagnement
+        adapté et des activités pour progresser à son rythme.
+      </p>
+      <a href="#cours" class="button">Découvrir les cours</a>
+      <a href="#stages" class="button button-blue">Découvrir les stages</a>
+    </div>
+    <div class="hero-art">
+      <div class="hero-art-inner">
+        <div class="emoji">📚 🌍 ✏️</div>
+        <h2>J'apprends, je progresse !</h2>
+        <p>Des cours et des stages pour apprendre les langues avec le sourire.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="experience">
+  <div class="container"><strong>23 ans d'expérience</strong> dans l'enseignement des langues en Fédération Wallonie-Bruxelles.</div>
+</div>
+
+<section class="courses" id="cours">
+  <div class="container">
+    <div class="section-heading">
+      <span class="kicker">Nos cours</span>
+      <h2>Choisis le cours qui te correspond</h2>
+      <p>Anglais et néerlandais, en primaire ou en secondaire, en cours particulier ou en petit groupe.</p>
+    </div>
+
+    <div class="grid-four">
+      <article class="card">
+        <div class="icon bg-orange">🇳🇱</div>
+        <h3>Néerlandais — Primaire</h3>
+        <p>Pour découvrir la langue et consolider les bases scolaires.</p>
+        <ul><li>Vocabulaire et grammaire</li><li>Compréhension orale</li><li>Lecture et expression</li><li>Exercices adaptés</li></ul>
+        <div class="prices">
+          <div class="price-line"><span>Particulier</span><strong>40 €/h</strong></div>
+          <div class="price-line"><span>Groupe</span><strong>25 €/h</strong></div>
+          <p class="note">Prix par élève. Maximum 6 élèves par groupe.</p>
+        </div>
+        <a class="card-link" href="#contact" onclick="selectCourse('Néerlandais','Primaire','Particulier')">Choisir ce cours</a>
+      </article>
+
+      <article class="card">
+        <div class="icon bg-pink">📖</div>
+        <h3>Néerlandais — Secondaire</h3>
+        <p>Pour améliorer les résultats et préparer les évaluations.</p>
+        <ul><li>Grammaire et conjugaison</li><li>Expression orale et écrite</li><li>Compréhension de textes</li><li>Préparation au CE1D</li></ul>
+        <div class="prices">
+          <div class="price-line"><span>Particulier</span><strong>40 €/h</strong></div>
+          <div class="price-line"><span>Groupe</span><strong>30 €/h</strong></div>
+          <p class="note">Prix par élève. Maximum 6 élèves par groupe.</p>
+        </div>
+        <a class="card-link" href="#contact" onclick="selectCourse('Néerlandais','Secondaire','Particulier')">Choisir ce cours</a>
+      </article>
+
+      <article class="card">
+        <div class="icon bg-blue">🇬🇧</div>
+        <h3>Anglais — Primaire</h3>
+        <p>Une approche ludique pour découvrir et pratiquer l'anglais.</p>
+        <ul><li>Vocabulaire du quotidien</li><li>Jeux et activités</li><li>Prononciation</li><li>Compréhension orale</li></ul>
+        <div class="prices">
+          <div class="price-line"><span>Particulier</span><strong>40 €/h</strong></div>
+          <div class="price-line"><span>Groupe</span><strong>25 €/h</strong></div>
+          <p class="note">Prix par élève. Maximum 6 élèves par groupe.</p>
+        </div>
+        <a class="card-link" href="#contact" onclick="selectCourse('Anglais','Primaire','Particulier')">Choisir ce cours</a>
+      </article>
+
+      <article class="card">
+        <div class="icon bg-green">💬</div>
+        <h3>Anglais — Secondaire</h3>
+        <p>Pour gagner en aisance et mieux comprendre la matière.</p>
+        <ul><li>Grammaire et vocabulaire</li><li>Expression orale</li><li>Compréhension écrite</li><li>Préparation aux contrôles</li></ul>
+        <div class="prices">
+          <div class="price-line"><span>Particulier</span><strong>40 €/h</strong></div>
+          <div class="price-line"><span>Groupe</span><strong>30 €/h</strong></div>
+          <p class="note">Prix par élève. Maximum 6 élèves par groupe.</p>
+        </div>
+        <a class="card-link" href="#contact" onclick="selectCourse('Anglais','Secondaire','Particulier')">Choisir ce cours</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="tarifs">
+  <div class="container">
+    <div class="section-heading">
+      <span class="kicker">Nos tarifs</span>
+      <h2>Des prix simples et transparents</h2>
+      <p>Les tarifs sont indiqués par élève et par heure de cours.</p>
+    </div>
+    <div class="grid-three">
+      <article class="price-card">
+        <div class="emoji">🧒</div>
+        <h3>Cours groupé — Primaire</h3>
+        <div class="price-number">25 €</div>
+        <p>Par élève et par heure</p>
+        <p>Anglais ou néerlandais<br>Maximum 6 élèves</p>
+        <a href="#contact" class="button" onclick="selectCourse('','Primaire','Groupe')">Réserver</a>
+      </article>
+      <article class="price-card">
+        <div class="emoji">🎒</div>
+        <h3>Cours groupé — Secondaire</h3>
+        <div class="price-number">30 €</div>
+        <p>Par élève et par heure</p>
+        <p>Anglais ou néerlandais<br>Préparation au CE1D possible<br>Maximum 6 élèves</p>
+        <a href="#contact" class="button" onclick="selectCourse('','Secondaire','Groupe')">Réserver</a>
+      </article>
+      <article class="price-card">
+        <div class="emoji">⭐</div>
+        <h3>Cours particulier</h3>
+        <div class="price-number">40 €</div>
+        <p>Par élève et par heure</p>
+        <p>Un accompagnement individuel<br>Primaire et secondaire</p>
+        <a href="#contact" class="button" onclick="selectCourse('','Primaire','Particulier')">Réserver</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="stages" id="stages">
+  <div class="container">
+    <div class="section-heading">
+      <span class="kicker">Vacances scolaires</span>
+      <h2>Les stages de langues LingoBoost</h2>
+      <p>Profite des vacances pour réviser, apprendre et reprendre confiance dans une ambiance conviviale et festive !</p>
+    </div>
+
+    <div class="stage-intro">
+      <h3>🎉 Une semaine pour booster tes langues !</h3>
+      <p>Stages d'anglais et de néerlandais pour le primaire et le secondaire.</p>
+      <p>Les activités sont adaptées au niveau des élèves.</p>
+    </div>
+
+    <div class="grid-three">
+      <article class="stage-card autumn">
+        <div class="stage-banner">
+          <div>🎃 🍂 🦇<h3>Stage d'automne</h3></div>
+        </div>
+        <div class="stage-content">
+          <h3>🍁 Vacances de Toussaint</h3>
+          <p>Une semaine aux couleurs de l'automne, avec des activités linguistiques et des jeux sur le thème d'Halloween.</p>
+          <ul>
+            <li>Vocabulaire et expression</li>
+            <li>Jeux et activités thématiques</li>
+            <li>Révisions adaptées au niveau</li>
+          </ul>
+          <div class="stage-price">
+            <p>🧒 <strong>Primaire :</strong> 9 h – 12 h</p>
+            <p><strong>250 € pour 5 jours</strong></p>
+            <hr>
+            <p>🎒 <strong>Secondaire :</strong> 13 h – 16 h</p>
+            <p><strong>300 € pour 5 jours</strong></p>
+          </div>
+          <a href="#contact" class="button" onclick="selectStage('Stage d’automne / Toussaint')">Demander des informations</a>
+        </div>
+      </article>
+
+      <article class="stage-card carnival">
+        <div class="stage-banner">
+          <div>🎭 🎉 🎊<h3>Stage de Carnaval</h3></div>
+        </div>
+        <div class="stage-content">
+          <h3>🎊 Vacances de Carnaval</h3>
+          <p>Une ambiance colorée et festive pour apprendre en participant à des jeux, défis et activités en langues.</p>
+          <ul>
+            <li>Jeux de vocabulaire</li>
+            <li>Petits défis en équipe</li>
+            <li>Compréhension et expression</li>
+          </ul>
+          <div class="stage-price">
+            <p>🧒 <strong>Primaire :</strong> 9 h – 12 h</p>
+            <p><strong>250 € pour 5 jours</strong></p>
+            <hr>
+            <p>🎒 <strong>Secondaire :</strong> 13 h – 16 h</p>
+            <p><strong>300 € pour 5 jours</strong></p>
+          </div>
+          <a href="#contact" class="button" onclick="selectStage('Stage de Carnaval')">Demander des informations</a>
+        </div>
+      </article>
+
+      <article class="stage-card easter">
+        <div class="stage-banner">
+          <div>🐰 🌷 🐣<h3>Stage de Pâques</h3></div>
+        </div>
+        <div class="stage-content">
+          <h3>🌸 Vacances de Pâques</h3>
+          <p>Des couleurs printanières, des jeux et des activités pour progresser en anglais ou en néerlandais.</p>
+          <ul>
+            <li>Vocabulaire du printemps</li>
+            <li>Jeux et activités créatives</li>
+            <li>Révisions et expression orale</li>
+          </ul>
+          <div class="stage-price">
+            <p>🧒 <strong>Primaire :</strong> 9 h – 12 h</p>
+            <p><strong>250 € pour 5 jours</strong></p>
+            <hr>
+            <p>🎒 <strong>Secondaire :</strong> 13 h – 16 h</p>
+            <p><strong>300 € pour 5 jours</strong></p>
+          </div>
+          <a href="#contact" class="button" onclick="selectStage('Stage de Pâques')">Demander des informations</a>
+        </div>
+      </article>
+    </div>
+
+    <p class="stage-footnote">
+      Les stages sont prévus sur 5 jours. Les dates exactes, les places disponibles,
+      le lieu et la langue enseignée seront confirmés lors de la demande d'inscription.
+      Le prix indiqué correspond à la semaine complète.
+    </p>
+  </div>
+</section>
+
+<section class="advantages">
+  <div class="container">
+    <div class="section-heading">
+      <span class="kicker">Pourquoi LingoBoost ?</span>
+      <h2>Apprendre autrement</h2>
+      <p>Un accompagnement encourageant pour progresser à son rythme.</p>
+    </div>
+    <div class="grid-three">
+      <article class="advantage-card">
+        <div class="emoji">🎯</div>
+        <h3>Un suivi adapté</h3>
+        <p>Des explications et des exercices selon les besoins de chaque élève.</p>
+      </article>
+      <article class="advantage-card">
+        <div class="emoji">👥</div>
+        <h3>Petits groupes</h3>
+        <p>Maximum 6 élèves par groupe pour favoriser la participation.</p>
+      </article>
+      <article class="advantage-card">
+        <div class="emoji">💻</div>
+        <h3>Plusieurs possibilités</h3>
+        <p>Cours à distance ou en présentiel, selon les disponibilités convenues.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="teacher" id="professeure">
+  <div class="container teacher-grid">
+    <div class="teacher-art">👩‍🏫 📚</div>
+    <div class="teacher-text">
+      <span class="kicker">Votre professeure</span>
+      <h2>Une expérience au service de votre réussite</h2>
+      <p>
+        Professeure diplômée dans la catégorie pédagogique des langues,
+        en anglais et en néerlandais, forte de 23 ans d'expérience dans
+        l'enseignement en Fédération Wallonie-Bruxelles.
+      </p>
+      <p>
+        Chaque élève est différent. L'objectif est de comprendre ses difficultés,
+        de consolider ses bases et de lui permettre de progresser en confiance.
+      </p>
+      <span class="tag">✓ 23 ans d'expérience</span>
+      <span class="tag">✓ Anglais</span>
+      <span class="tag">✓ Néerlandais</span>
+      <span class="tag">✓ Primaire et secondaire</span>
+      <br><br>
+      <a href="#contact" class="button">Prendre contact</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <span class="kicker">Contact et inscriptions</span>
+      <h2>Prêt à booster tes langues ?</h2>
+      <p>Une question sur les cours ou les stages ? Envoie-nous une demande de renseignements.</p>
+      <div class="contact-detail">
+        <strong>📧 E-mail</strong><br>
+        <a href="mailto:lingoboostacademy@gmail.com">lingoboostacademy@gmail.com</a>
+      </div>
+      <div class="contact-detail">
+        <strong>📞 Téléphone</strong><br>
+        <a href="tel:+32477310017">04 77 31 00 17</a>
+      </div>
+      <div class="contact-detail">
+        <strong>📚 Cours</strong><br>
+        Anglais et néerlandais — primaire et secondaire
+      </div>
+      <div class="contact-detail">
+        <strong>🎉 Stages</strong><br>
+        Automne, Carnaval et Pâques — 5 jours
+      </div>
+    </div>
+
+    <form class="contact-form" id="contactForm">
+      <h3>Demande de renseignements</h3>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nom">Nom et prénom *</label>
+          <input id="nom" name="nom" required placeholder="Ton nom">
+        </div>
+        <div class="form-group">
+          <label for="email">Ton adresse e-mail *</label>
+          <input id="email" name="email" type="email" required placeholder="ton@email.com">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="demande">Que recherches-tu ? *</label>
+        <select id="demande" name="demande" required>
+          <option value="">Choisir une demande</option>
+          <option>Cours particulier</option>
+          <option>Cours groupé primaire</option>
+          <option>Cours groupé secondaire</option>
+          <option>Stage d'automne / Toussaint</option>
+          <option>Stage de Carnaval</option>
+          <option>Stage de Pâques</option>
+          <option>Autre renseignement</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="niveau">Niveau scolaire</label>
+          <select id="niveau" name="niveau">
+            <option value="">Choisir un niveau</option>
+            <option>Primaire</option>
+            <option>Secondaire</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="langue">Langue</label>
+          <select id="langue" name="langue">
+            <option value="">Choisir une langue</option>
+            <option>Néerlandais</option>
+            <option>Anglais</option>
+            <option>Anglais et néerlandais</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tes questions, disponibilités ou la période de stage souhaitée..."></textarea>
+      </div>
+
+      <button type="submit" class="button submit-button">Envoyer ma demande ✉️</button>
+      <p class="form-note">
+        Le bouton prépare un e-mail dans ton application de messagerie.
+        Tu devras confirmer l'envoi de cet e-mail.
+      </p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-logo">LingoBoost Academy ⭐</div>
+    <p>Apprendre les langues, progresser et prendre confiance.</p>
+    <div class="footer-contact">
+      <a href="mailto:lingoboostacademy@gmail.com">📧 lingoboostacademy@gmail.com</a>
+      <a href="tel:+32477310017">📞 04 77 31 00 17</a>
+    </div>
+    <p>© <span id="year"></span> LingoBoost Academy — Tous droits réservés.</p>
+  </div>
+</footer>
+
+<a class="floating-bubble" href="#cours">Booste ta confiance ⭐</a>
+
+<script>
+const EMAIL_DESTINATAIRE = "lingoboostacademy@gmail.com";
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+function selectCourse(langue, niveau, format) {
+  document.getElementById("niveau").value = niveau;
+
+  if (langue) {
+    document.getElementById("langue").value = langue;
+  }
+
+  const demande = document.getElementById("demande");
+  if (format === "Groupe" && niveau === "Primaire") {
+    demande.value = "Cours groupé primaire";
+  } else if (format === "Groupe" && niveau === "Secondaire") {
+    demande.value = "Cours groupé secondaire";
+  } else {
+    demande.value = "Cours particulier";
+  }
+}
+
+function selectStage(stage) {
+  document.getElementById("demande").value = stage;
+}
+
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const nom = document.getElementById("nom").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const demande = document.getElementById("demande").value;
+  const niveau = document.getElementById("niveau").value || "Non précisé";
+  const langue = document.getElementById("langue").value || "Non précisée";
+  const message = document.getElementById("message").value.trim() || "Aucun message supplémentaire.";
+
+  const sujet = encodeURIComponent("Demande de renseignements — LingoBoost Academy");
+  const corps = encodeURIComponent(
+    "Bonjour LingoBoost Academy,\n\n" +
+    "Nom : " + nom + "\n" +
+    "E-mail : " + email + "\n" +
+    "Demande : " + demande + "\n" +
+    "Niveau : " + niveau + "\n" +
+    "Langue : " + langue + "\n\n" +
+    "Message :\n" + message + "\n\n" +
+    "Merci !"
+  );
+
+  window.location.href =
+    "mailto:" + EMAIL_DESTINATAIRE +
+    "?subject=" + sujet +
+    "&body=" + corps;
+});
+</script>
+</body>
+</html>
